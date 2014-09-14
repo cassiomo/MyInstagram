@@ -74,7 +74,7 @@ public class MyInstagram extends Activity {
                         JSONObject photoJSON = photosJSON.getJSONObject(i);
                         InstagramPhoto photo = new InstagramPhoto();
                         photo.username = photoJSON.getJSONObject("user").getString("username");
-                        if ( photoJSON.getJSONObject("caption") !=null) {
+                        if ( !photoJSON.isNull("caption")) {
                             photo.caption = photoJSON.getJSONObject("caption").getString("text");
                         }
 
