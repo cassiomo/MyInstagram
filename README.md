@@ -16,3 +16,5 @@ Advanced User Stories:
 1. Add pull-to-refresh for popular stream with SwipeRefreshLayout
 2. Show latest comment for each photo (bonus: show last 2 comments)
 3. Update the image to be displayed with the same proportions as on Instagram
+
+![Alt text](https://github.com/cassiomo/MyInstagram/blob/master/popular.gif "popular.gif")
