@@ -11,7 +11,7 @@ Completed user stories:
 Graphic, Caption, Username
 (Optional) display like count, user profile image 
 
-Advanced User Stories:
+Advanced User Stories (Conitnue to work on):
 
 1. Add pull-to-refresh for popular stream with SwipeRefreshLayout
 2. Show latest comment for each photo (bonus: show last 2 comments)
