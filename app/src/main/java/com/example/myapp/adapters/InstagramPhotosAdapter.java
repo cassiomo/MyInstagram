@@ -1,6 +1,9 @@
 package com.example.myapp.adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,9 +11,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.myapp.helpers.ImageHelper;
 import com.example.myapp.models.InstagramPhoto;
 import com.example.myapp.myinstagram.R;
+import com.makeramen.RoundedTransformationBuilder;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
+import com.squareup.picasso.Transformation;
 
 import java.util.List;
 
@@ -60,13 +67,26 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         // reset the image from the recycled view
 
         imgPhoto.setImageResource(0);
-        //imgProfile.setImageResource(photo.profile_picture);
 
         // Ask for the photot to be added to the imageView based on the photo url
         // Background: send a network request to the url, download the image bytes, convert into the bitmap
         // maybe resize the image
 
         Picasso.with(getContext()).load(photo.imageUrl).into(imgPhoto);
+        if (null != photo.profile_picture) {
+            imgProfile.setImageResource(0);
+            Transformation transformation = new RoundedTransformationBuilder()
+                    .borderColor(Color.BLACK)
+                    .borderWidthDp(0)
+                    .cornerRadiusDp(30)
+                    .oval(false)
+                    .build();
+
+            Picasso.with(getContext())
+                    .load(photo.profile_picture)
+                    .transform(transformation)
+                    .into(imgProfile);
+        }
         return convertView;
 
         //Populate the subviews (textfields, imageview ) with the correct data

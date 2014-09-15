@@ -106,9 +106,7 @@ public class MyInstagram extends Activity {
                         if ( !photoJSON.isNull("caption")) {
                             photo.caption = photoJSON.getJSONObject("caption").getString("text");
                         }
-                        if ( !photoJSON.isNull("profile_picture")) {
-                            photo.profile_picture = photoJSON.getJSONObject("user").getString("profile_picture");
-                        }
+                        photo.profile_picture = photoJSON.getJSONObject("user").getString("profile_picture");
 
                         photo.imageUrl = photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getString("url");
                         photo.imageHeight = photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getInt("height");
