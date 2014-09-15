@@ -2,6 +2,7 @@ package com.example.myapp.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,11 +27,35 @@ public class MyInstagram extends Activity {
     public static final String CLIENT_ID= "4d3f3c0229dc49e98f82e73ac05f3c13";
     private ArrayList<InstagramPhoto> photos;
     private InstagramPhotosAdapter aPhotos;
+    private SwipeRefreshLayout swipeContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_instagram);
+        fetchPopularPhotos();
+
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        // Setup refresh listener which triggers new data loading
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Your code to refresh the list here.
+                // Make sure you call swipeContainer.setRefreshing(false)
+                // once the network request has completed successfully.
+                fetchTimelineAsync(0);
+                //fetchPopularPhotos();
+            }
+        });
+        // Configure the refreshing colors
+        swipeContainer.setColorScheme(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+    }
+
+    public void fetchTimelineAsync(int page) {
+        Log.d("DEBUG", "Testing");
         fetchPopularPhotos();
     }
 
@@ -60,6 +85,11 @@ public class MyInstagram extends Activity {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
+                // ...the data has come back, finish populating listview...
+                // Now we call setRefreshing(false) to signal refresh has finished
+                swipeContainer.setRefreshing(false);
+
                 // fired once the successful response back
                 // response is == popular photo json
                 //super.onSuccess(statusCode, headers, response);
