@@ -66,7 +66,6 @@ public class MyInstagram extends Activity {
                 //Log.i("INFO", response.toString());
                 // url, height, username, caption
                 JSONArray photosJSON;
-
                 try {
                     photos.clear();
                     photosJSON = response.getJSONArray("data");
@@ -76,6 +75,9 @@ public class MyInstagram extends Activity {
                         photo.username = photoJSON.getJSONObject("user").getString("username");
                         if ( !photoJSON.isNull("caption")) {
                             photo.caption = photoJSON.getJSONObject("caption").getString("text");
+                        }
+                        if ( !photoJSON.isNull("profile_picture")) {
+                            photo.profile_picture = photoJSON.getJSONObject("user").getString("profile_picture");
                         }
 
                         photo.imageUrl = photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getString("url");

@@ -6,5 +6,8 @@
     <string name="action_settings">Settings</string>
     <string name="popular_photos_caption">Popular Photos</string>
     <string name="default_caption">default caption</string>
+    <string name="caption">caption</string>
+    <string name="profile_name">name</string>
+    <string name="tv_likes">likes</string>
 
 </resources>

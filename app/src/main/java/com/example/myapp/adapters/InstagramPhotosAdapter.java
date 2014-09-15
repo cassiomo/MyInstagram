@@ -39,11 +39,19 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         }
 
         TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
+        TextView tvProfile = (TextView) convertView.findViewById(R.id.tvProfile);
+        TextView tvProfileName = (TextView) convertView.findViewById(R.id.tvProfileName);
+        TextView tvLikes = (TextView) convertView.findViewById(R.id.tvLikes);
         ImageView imgPhoto = (ImageView) convertView.findViewById(R.id.imgPhoto);
+        ImageView imgProfile = (ImageView) convertView.findViewById(R.id.imgProfile);
 
         // lookup the subview within the template
 
         tvCaption.setText(photo.caption);
+        tvLikes.setText(String.valueOf(photo.likes_count) + " likes");
+        tvProfile.setText(photo.username);
+        tvProfileName.setText(photo.username);
+
 
         // set the image height before loading
         imgPhoto.getLayoutParams().height = photo.imageHeight;
@@ -52,6 +60,7 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         // reset the image from the recycled view
 
         imgPhoto.setImageResource(0);
+        //imgProfile.setImageResource(photo.profile_picture);
 
         // Ask for the photot to be added to the imageView based on the photo url
         // Background: send a network request to the url, download the image bytes, convert into the bitmap
