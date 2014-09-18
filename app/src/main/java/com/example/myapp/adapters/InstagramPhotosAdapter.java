@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +56,9 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         // lookup the subview within the template
 
         tvCaption.setText(photo.caption);
-        tvLikes.setText(String.valueOf(photo.likes_count) + " likes");
+        String heart = "&#9825";
+        //tvLikes.setText(Html.fromHtml(heart+ String.valueOf(photo.likes_count) + " likes"));
+        tvLikes.setText(Html.fromHtml(heart) + String.valueOf(photo.likes_count) + " likes");
         tvProfile.setText(photo.username);
         tvProfileName.setText(photo.username);
 

@@ -23,19 +23,16 @@
         android:id="@+id/imgProfile"
         android:src="@drawable/ic_profile"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/imgPhoto"
-        android:layout_alignEnd="@+id/imgPhoto" />
+        android:layout_alignParentLeft="true"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/profile_name"
         android:id="@+id/tvProfile"
         android:textColor="#ff254bff"
-        android:layout_below="@+id/imgProfile"
-        android:layout_alignRight="@+id/imgProfile"
-        android:layout_alignEnd="@+id/imgProfile" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imgProfile" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,8 +41,7 @@
         android:text="@string/tv_likes"
         android:id="@+id/tvLikes"
         android:layout_below="@+id/imgPhoto"
-        android:layout_alignRight="@+id/imgPhoto"
-        android:layout_alignEnd="@+id/imgPhoto"
+        android:layout_alignParentLeft="true"
         android:textColor="#ff294aff" />
 
     <TextView
@@ -55,8 +51,7 @@
         android:text="@string/profile_name"
         android:id="@+id/tvProfileName"
         android:layout_below="@+id/tvLikes"
-        android:layout_alignRight="@+id/tvLikes"
-        android:layout_alignEnd="@+id/tvLikes"
+        android:layout_alignParentLeft="true"
         android:textColor="#ff2b37ff" />
 
     <TextView
@@ -66,8 +61,7 @@
         android:text="@string/caption"
         android:id="@+id/tvCaption"
         android:layout_below="@+id/tvProfileName"
-        android:layout_alignRight="@+id/imgProfile"
-        android:layout_alignEnd="@+id/imgProfile"
-        android:layout_marginTop="46dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
