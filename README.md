@@ -20,4 +20,4 @@ Advanced User Stories:
 2. (Working on it) Show latest comment for each photo (bonus: show last 2 comments)
 3. (Working on it) Update the image to be displayed with the same proportions as on Instagram
 
-![Alt text](https://github.com/cassiomo/MyInstagram/blob/master/popular.gif "popular.gif")
+<img src="https://raw.githubusercontent.com/cassiomo/MyInstagram/master/popular.gif">
